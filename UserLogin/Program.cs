@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace UserLogin
 {
@@ -19,10 +21,7 @@ namespace UserLogin
                 Console.WriteLine("successfully logged in user -> " + user);
                 roleToString();
                 Console.WriteLine("user role is -> " + LoginValidation.CurrentUserRole);
-                if (LoginValidation.CurrentUserRole == UserRoles.ADMIN)
-                {
-                    adminMenu();
-                }
+                menu();
             }
         }
 
@@ -31,20 +30,60 @@ namespace UserLogin
             Console.WriteLine("!!!" + errorMsg + "!!!");
         }
 
-        static void adminMenu()
+        static void menu()
         {
+            List<String> permittedActions = new List<string>(){"0"};
+            if (RightsGranted.RoleToRights.ContainsKey(LoginValidation.CurrentUserRole))
+            {
+                if (RightsGranted.RoleToRights.ContainsKey(LoginValidation.CurrentUserRole))
+                {
+                   var currentRights =  RightsGranted.RoleToRights[LoginValidation.CurrentUserRole];
+                   if (currentRights.Contains(RoleRight.REDACTOR))
+                   {
+                       permittedActions.Add("1");
+                       permittedActions.Add("2");
+                   }
+                   if (currentRights.Contains(RoleRight.OBSERVER))
+                   {
+                       permittedActions.Add("3");
+                       permittedActions.Add("5");
+                   }
+                   if (currentRights.Contains(RoleRight.OBSERVER))
+                   {
+                       permittedActions.Add("4");
+                   }
+                       
+                       
+                }
+                
+               
+            }
+            permittedActions.Sort();
+            Dictionary<String, String> consoloOptions = new Dictionary<String, String>
+            {
+                { "0", ": Exit" },
+                { "1", ": Change user role" },
+                { "2", ": Change user active date" },
+                { "3", ": Users list" },
+                { "4", ": View activity log file" },
+                { "5", ": View current activity" },
+            };
             while (true)
             {
                 Console.WriteLine("Chose Option: ");
-                Console.WriteLine("0: Exit ");
-                Console.WriteLine("1: Change user role ");
-                Console.WriteLine("2: Change user active date ");
-                Console.WriteLine("3: Users list");
-                Console.WriteLine("4: View activity log file");
-                Console.WriteLine("5: View current activity");
+                foreach (var permittedAction in permittedActions)
+                {
+                    Console.WriteLine(permittedAction + consoloOptions[permittedAction]);
+                }
+                
                 String input = Console.ReadLine();
+                if (!permittedActions.Contains(input))
+                {
+                    input = "Wrong";
+                }
                 if (input.Equals("1"))
                 {
+                    
                     Console.WriteLine("Insert role(number from 1 to 5)");
                     String role = Console.ReadLine();
                     Console.WriteLine("Insert Username");
@@ -84,6 +123,9 @@ namespace UserLogin
                 else if (input.Equals("5"))
                 {
                     Logger.getCurrentSessionActivities();
+                }else if (input.Equals("Wrong"))
+                {
+                    Console.WriteLine("Access Denied..");
                 }
                 else
                 {
