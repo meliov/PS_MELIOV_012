@@ -25,28 +25,26 @@ namespace UserLogin
             currentSessionActivities.Add(activityLine);
         }
         
-        static public void getCurrentSessionActivities()
+        static public IEnumerable<string> getCurrentSessionActivities()
         {
-            foreach (var activity in currentSessionActivities)
-            {
-                Console.WriteLine(activity+ "\n");
-            }
+            return currentSessionActivities;
         }
         
-        static public void getAllSessionActivities()
+        static public IEnumerable<string> getAllSessionActivities()
         {
            
             StreamReader sr = new
-                StreamReader(logFileName); 
+                StreamReader(logFileName);
             StringBuilder line = new StringBuilder(1048);
+            List<string> allLines = new List<string>();
             while (!sr.EndOfStream)
             {
                 line.Append(sr.ReadLine());
-                Console.WriteLine(line);
+                allLines.Add(line.ToString());
                 line.Clear();
             }
             sr.Close();
-
+            return allLines;
         }
     }
 }

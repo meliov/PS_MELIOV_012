@@ -117,12 +117,18 @@ namespace UserLogin
                     UserData.printAllUsers();
                 }
                 else if (input.Equals("4"))
-                {
-                    Logger.getAllSessionActivities();
+                { 
+                    foreach (var activity in  Logger.getAllSessionActivities())
+                    {
+                        Console.WriteLine(activity+ "\n");
+                    }
                 }
                 else if (input.Equals("5"))
                 {
-                    Logger.getCurrentSessionActivities();
+                    foreach (var activity in  Logger.getCurrentSessionActivities())
+                    {
+                        Console.WriteLine(activity+ "\n");
+                    }
                 }else if (input.Equals("Wrong"))
                 {
                     Console.WriteLine("Access Denied..");
