@@ -8,12 +8,12 @@ public class Student
     private string middleName;
     private string lastName;
     private string faculty;
-    private string specialty; // xD
+    private string specialty; 
     private string educationDegree;
     private string status;
     private string faqNumber;
     private int course;
-    private int stream; // lol
+    private int stream; 
     private int group;
     
     

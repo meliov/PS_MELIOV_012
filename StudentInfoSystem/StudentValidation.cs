@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UserLogin;
 
 namespace StudentInfoSystem;
@@ -14,5 +15,13 @@ public class StudentValidation
         }
 
         return StudentData.TestStudents.Find(it => it.FaqNumber.Equals(user.FakNum));
+    }
+
+    public static Student getStudentDataByUserSortedAlphabetically()
+    {
+        return StudentData.TestStudents.OrderBy(u => u.LastName)
+                         .ThenBy(u => u.FirstName)
+                         .ThenBy(u => u.MiddleName)
+                         .FirstOrDefault();
     }
 }

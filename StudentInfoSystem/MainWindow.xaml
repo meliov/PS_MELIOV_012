@@ -38,9 +38,8 @@
                 <TextBox HorizontalAlignment="Left" Name="group" Margin="502,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="74" Height="28" />
             </Grid>
         </GroupBox>
-        <Button Content="Clear" HorizontalAlignment="Left" Margin="831,351,0,0" VerticalAlignment="Top" Click="Clear" RenderTransformOrigin="0.831,-0.633" Height="23" Width="47"/>
-        <Button Content="Disable" HorizontalAlignment="Left" Margin="831,379,0,0" VerticalAlignment="Top" Click="Disable" RenderTransformOrigin="0.831,-0.633" Height="23" Width="47"/>
-        <Button Content="Fill" HorizontalAlignment="Left" Margin="831,412,0,0" VerticalAlignment="Top" Click="Fill" RenderTransformOrigin="0.831,-0.633" Height="23" Width="47"/>
+        <Button Content="Logout" HorizontalAlignment="Left" Margin="831,379,0,0" VerticalAlignment="Top" Click="Logout" RenderTransformOrigin="0.831,-0.633" Height="23" Width="47"/>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="831,412,0,0" VerticalAlignment="Top" Click="Login" RenderTransformOrigin="0.831,-0.633" Height="23" Width="47"/>
         <Button Content="Submit" HorizontalAlignment="Left" Margin="831,440,0,0" VerticalAlignment="Top" Click="Submit" RenderTransformOrigin="0.831,-0.633" Height="23" Width="47"/>
     </Grid>
 </Window>

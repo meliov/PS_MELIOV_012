@@ -28,7 +28,7 @@ namespace StudentInfoSystem
             InitializeComponent();
         }
 
-        private void Clear(object sender, RoutedEventArgs e)
+        private void clear()
         {
             foreach (UIElement child in StudentInfo.Children)
             {
@@ -47,16 +47,18 @@ namespace StudentInfoSystem
             }
         }
 
-        private void Disable(object sender, RoutedEventArgs e)
+        private void Logout(object sender, RoutedEventArgs e)
         {
-            StudentInfo.IsEnabled = !StudentInfo.IsEnabled;
-            personalInfo.IsEnabled = !personalInfo.IsEnabled;
+            personalInfo.IsEnabled = false;
+            clear();
         }
 
-        private void Fill(object sender, RoutedEventArgs e)
+        private void Login(object sender, RoutedEventArgs e)
         {
+            StudentInfo.IsEnabled = true;
             var user = new User("Dragan", "12345", "12334", 4, DateTime.Now, DateTime.MaxValue);
-            var student = StudentValidation.getStudentDataByUser(user);
+            //var student = StudentValidation.getStudentDataByUser(user);
+            var student = StudentValidation.getStudentDataByUserSortedAlphabetically();
             firstName.Text = student.FirstName;
             secondName.Text = student.MiddleName;
             lastName.Text = student.LastName;   
@@ -87,7 +89,7 @@ namespace StudentInfoSystem
 
             if (student == null)
              {
-                 Clear(sender, e);
+                 clear();
              }
         }
     }
