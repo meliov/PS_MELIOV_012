@@ -8,6 +8,11 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="DBConnect" Version="2.1.0" />
+      <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+    </ItemGroup>
+
+    <ItemGroup>
       <ProjectReference Include="..\StudentInfoSystem\StudentInfoSystem.csproj" />
     </ItemGroup>
 

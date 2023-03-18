@@ -1,30 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using UserLogin;
+using WpfApp1.Properties;
 
 namespace StudentInfoSystem
 {
+   
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
         private Student student;
-        
+        public List<string> StudStatusChoices { get; set; }
         public MainWindow()
         {
+            FillStudStatusChoices();
+            if (TestStudentsIfEmpty())
+            {
+                CopyTestStudents();
+            }
+
             InitializeComponent();
         }
 
@@ -50,12 +51,14 @@ namespace StudentInfoSystem
         private void Logout(object sender, RoutedEventArgs e)
         {
             personalInfo.IsEnabled = false;
+            StudentInfo.IsEnabled = false;
             clear();
         }
 
         private void Login(object sender, RoutedEventArgs e)
         {
             StudentInfo.IsEnabled = true;
+            personalInfo.IsEnabled = true;
             var user = new User("Dragan", "12345", "12334", 4, DateTime.Now, DateTime.MaxValue);
             //var student = StudentValidation.getStudentDataByUser(user);
             var student = StudentValidation.getStudentDataByUserSortedAlphabetically();
@@ -66,7 +69,7 @@ namespace StudentInfoSystem
             spec.Text = student.Specialty;
             oks.Text = student.EducationDegree;
             facNum.Text = student.FaqNumber;
-            status.Text = student.Status;
+            status.Text = StudStatusChoices[0];
             course.Text = student.Course.ToString();
             stream.Text = student.Stream.ToString();
             group.Text = student.Group.ToString();
@@ -91,6 +94,52 @@ namespace StudentInfoSystem
              {
                  clear();
              }
+
+            count.Text = TestStudentsIfEmpty().ToString();
+        }
+
+        private void FillStudStatusChoices()
+        {
+            StudStatusChoices = new List<string>();
+            using (IDbConnection connection = new SqlConnection(Settings.Default.DbConnect))
+            {
+                string sqlquery =
+                @"SELECT StatusDescr
+                    FROM StudStatus";
+                IDbCommand command = new SqlCommand();
+                command.Connection = connection;
+                connection.Open();
+                command.CommandText = sqlquery;
+                IDataReader reader = command.ExecuteReader();
+                bool notEndOfResult;
+                notEndOfResult = reader.Read();
+                while (notEndOfResult)
+
+                {
+                    string s = reader.GetString(0);
+                    StudStatusChoices.Add(s);
+                    notEndOfResult = reader.Read();
+                }
+            }
+        }
+
+        private Boolean TestStudentsIfEmpty()
+        {
+            StudentInfoContext context = new StudentInfoContext();
+            IEnumerable<Student> queryStudents = context.Students;
+            int countStudents = queryStudents.Count();
+
+            return countStudents < 1;
+        }
+
+        private void CopyTestStudents()
+        {
+            StudentInfoContext context = new StudentInfoContext();
+            foreach (Student st in StudentData.TestStudents)
+            {
+                context.Students.Add(st);
+            }
+            context.SaveChanges();
         }
     }
 }

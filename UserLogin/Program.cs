@@ -1,4 +1,7 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,15 +11,14 @@ namespace UserLogin
     {
         static void Main(string[] args)
         {
-            
+            UserData.ResetTestUserData();
             Console.WriteLine("Insert Username: ");
             String username = Console.ReadLine();
             Console.WriteLine("Insert Password: ");
             String password = Console.ReadLine();
             LoginValidation loginValidation = new LoginValidation(username, password, errorMessage);
-            UserData.ResetTestUserData();
             User user = new User();
-            if (loginValidation.validateUserInput(user)) 
+            if (loginValidation.validateUserInput(user))
             {
                 Console.WriteLine("successfully logged in user -> " + user);
                 roleToString();
@@ -32,31 +34,31 @@ namespace UserLogin
 
         static void menu()
         {
-            List<String> permittedActions = new List<string>(){"0"};
+            List<String> permittedActions = new List<string>() { "0" };
             if (RightsGranted.RoleToRights.ContainsKey(LoginValidation.CurrentUserRole))
             {
                 if (RightsGranted.RoleToRights.ContainsKey(LoginValidation.CurrentUserRole))
                 {
-                   var currentRights =  RightsGranted.RoleToRights[LoginValidation.CurrentUserRole];
-                   if (currentRights.Contains(RoleRight.REDACTOR))
-                   {
-                       permittedActions.Add("1");
-                       permittedActions.Add("2");
-                   }
-                   if (currentRights.Contains(RoleRight.OBSERVER))
-                   {
-                       permittedActions.Add("3");
-                       permittedActions.Add("5");
-                   }
-                   if (currentRights.Contains(RoleRight.OBSERVER))
-                   {
-                       permittedActions.Add("4");
-                   }
-                       
-                       
+                    var currentRights = RightsGranted.RoleToRights[LoginValidation.CurrentUserRole];
+                    if (currentRights.Contains(RoleRight.REDACTOR))
+                    {
+                        permittedActions.Add("1");
+                        permittedActions.Add("2");
+                    }
+                    if (currentRights.Contains(RoleRight.OBSERVER))
+                    {
+                        permittedActions.Add("3");
+                        permittedActions.Add("5");
+                    }
+                    if (currentRights.Contains(RoleRight.OBSERVER))
+                    {
+                        permittedActions.Add("4");
+                    }
+
+
                 }
-                
-               
+
+
             }
             permittedActions.Sort();
             Dictionary<String, String> consoloOptions = new Dictionary<String, String>
@@ -75,7 +77,7 @@ namespace UserLogin
                 {
                     Console.WriteLine(permittedAction + consoloOptions[permittedAction]);
                 }
-                
+
                 String input = Console.ReadLine();
                 if (!permittedActions.Contains(input))
                 {
@@ -83,7 +85,7 @@ namespace UserLogin
                 }
                 if (input.Equals("1"))
                 {
-                    
+
                     Console.WriteLine("Insert role(number from 1 to 5)");
                     String role = Console.ReadLine();
                     Console.WriteLine("Insert Username");
@@ -117,19 +119,20 @@ namespace UserLogin
                     UserData.printAllUsers();
                 }
                 else if (input.Equals("4"))
-                { 
-                    foreach (var activity in  Logger.getAllSessionActivities())
+                {
+                    foreach (var activity in Logger.getAllSessionActivities())
                     {
-                        Console.WriteLine(activity+ "\n");
+                        Console.WriteLine(activity + "\n");
                     }
                 }
                 else if (input.Equals("5"))
                 {
-                    foreach (var activity in  Logger.getCurrentSessionActivities())
+                    foreach (var activity in Logger.getCurrentSessionActivities())
                     {
-                        Console.WriteLine(activity+ "\n");
+                        Console.WriteLine(activity + "\n");
                     }
-                }else if (input.Equals("Wrong"))
+                }
+                else if (input.Equals("Wrong"))
                 {
                     Console.WriteLine("Access Denied..");
                 }
@@ -145,19 +148,19 @@ namespace UserLogin
         {
             switch (LoginValidation.CurrentUserRole) //??
             {
-                case   UserRoles.ADMIN:
+                case UserRoles.ADMIN:
                     Console.WriteLine("Admin just logged in");
                     break;
-                case   UserRoles.STUDENT:
+                case UserRoles.STUDENT:
                     Console.WriteLine("Student just logged in");
                     break;
-                case   UserRoles.INSPECTOR:
+                case UserRoles.INSPECTOR:
                     Console.WriteLine("Inspector just logged in");
                     break;
-                case   UserRoles.PROFESSOR:
+                case UserRoles.PROFESSOR:
                     Console.WriteLine("Professor just logged in");
                     break;
-                case   UserRoles.ANONYMOUS:
+                case UserRoles.ANONYMOUS:
                     Console.WriteLine("ANONYMOUS just logged in");
                     break;
                 default:
@@ -166,6 +169,7 @@ namespace UserLogin
             }
         }
     }
-    
+
 
 }
+

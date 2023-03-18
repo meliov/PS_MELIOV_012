@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UserLogin
 {
     public static class UserData
     {
+        private static UserContext context = new UserContext();
         static private List<User> testUsers;
 
         internal static List<User> TestUsers
@@ -18,7 +17,12 @@ namespace UserLogin
 
         static public void ResetTestUserData()
         {
-            if (testUsers == null)
+            if (TestUserIfEmpty())
+            {
+                CopyTestUsers();
+            }
+
+            if (testUsers == null || TestUserIfEmpty())
             {
                 testUsers = new List<User>()
                 {
@@ -27,34 +31,59 @@ namespace UserLogin
                     new User("Petkan", "12345", " 12335", 4, DateTime.Now, DateTime.MaxValue)
                 };
             }
+            else
+            {
+                testUsers = context.Users.ToList();
+            }
+        }
+
+        private static Boolean TestUserIfEmpty()
+        {
+            IEnumerable<User> queryStudents = context.Users;
+            int countUsers = queryStudents.Count();
+
+            return countUsers < 1;
+        }
+
+        private static void CopyTestUsers()
+        {
+            UserContext context = new UserContext();
+            foreach (User us in testUsers)
+            {
+                context.Users.Add(us);
+            }
+
+            context.SaveChanges();
         }
 
         static public User isUserPassCorrect(String username, String password)
         {
-            return testUsers
+            return context.Users
                 .FirstOrDefault(it => it.Username.Equals(username) && it.Password.Equals(password));
-
         }
 
         public static void setUserActveTo(string username, DateTime date)
         {
-            foreach (var t in testUsers.Where(t => t.Username.Equals(username)))
-            {
-                t.ActiveTo = date;
-                Console.WriteLine(t);
-                Logger.LogActivity("Setting user activity to: " + username);
-            }
+            User usr =
+                (from u in context.Users
+                    where u.Username == username
+                    select u).First();
+            usr.ActiveTo = date;
+            context.SaveChanges();
+            Console.WriteLine(usr);
+            Logger.LogActivity("Setting user activity to: " + username);
         }
-        
-        public static void assignUserRole(string username, Int32 role)
+
+        public static void assignUserRole(string username, int role)
         {
-            Logger.LogActivity("Successfully logged in..");
-            foreach (var user in testUsers.Where(user => user.Username.Equals(username)))
-            {
-                user.Role = role;
-                Console.WriteLine(user);
-                Logger.LogActivity("Setting user role to: " + username);
-            }
+            User usr =
+                (from u in context.Users
+                    where u.Username == username
+                    select u).First();
+            usr.Role = role;
+            context.SaveChanges();
+            Console.WriteLine(usr);
+            Logger.LogActivity("Setting user role to: " + username);
         }
 
         public static void printAllUsers()
@@ -64,6 +93,5 @@ namespace UserLogin
                 Console.WriteLine(testUser + "\n");
             }
         }
-        
     }
 }

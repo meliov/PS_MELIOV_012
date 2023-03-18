@@ -4,6 +4,7 @@ namespace StudentInfoSystem;
 
 public class Student
 {
+    private int studentId;
     private string firstName;
     private string middleName;
     private string lastName;
@@ -16,7 +17,10 @@ public class Student
     private int stream; 
     private int group;
     
-    
+    public Student()
+    {
+      
+    }
     public Student(string firstName, string middleName, string lastName, string faculty, string specialty, string educationDegree, string status, string faqNumber, int course, int stream, int group)
     {
         this.firstName = firstName;
@@ -30,6 +34,12 @@ public class Student
         this.course = course;
         this.stream = stream;
         this.group = group;
+    }
+
+    public int StudentId
+    {
+        get => studentId;
+        set => studentId = value;
     }
 
     public string FirstName

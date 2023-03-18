@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace StudentInfoSystem;
 
@@ -58,7 +59,11 @@ public class StudentData
 
     public static List<Student> TestStudents
     {
-        get => testStudents;
+        get
+        {
+            StudentInfoContext context = new StudentInfoContext();
+            return context.Students.ToList();
+        }
         private set => testStudents = value ?? throw new ArgumentNullException(nameof(value));
     }
 }

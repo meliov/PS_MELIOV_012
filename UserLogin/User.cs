@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace UserLogin
 {
-   public class User
+    public class User
     {
+        private Int32 userId;
         private String username;
         private String password;
         private String fakNum;
@@ -15,6 +13,12 @@ namespace UserLogin
         private DateTime created;
         private DateTime activeTo;
 
+        
+        public int UserId
+        {
+            get => userId;
+            set => userId = value;
+        }
         public DateTime ActiveTo
         {
             get => activeTo;
@@ -68,9 +72,8 @@ namespace UserLogin
 
         public override string ToString()
         {
-            return " username: " + username + " password: " + password + " fakNum" + fakNum + " role: " + 
+            return " username: " + username + " password: " + password + " fakNum" + fakNum + " role: " +
                    role.ToString() + "active to: ";
         }
-        
     }
 }
