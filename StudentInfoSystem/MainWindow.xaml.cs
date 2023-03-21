@@ -17,15 +17,17 @@ namespace StudentInfoSystem
     public partial class MainWindow : Window
     {
         private Student student;
+        private User user;
         public List<string> StudStatusChoices { get; set; }
-        public MainWindow()
+        public MainWindow(User user)
         {
             FillStudStatusChoices();
             if (TestStudentsIfEmpty())
             {
                 CopyTestStudents();
             }
-
+            
+            this.user = user;
             InitializeComponent();
         }
 
@@ -59,9 +61,9 @@ namespace StudentInfoSystem
         {
             StudentInfo.IsEnabled = true;
             personalInfo.IsEnabled = true;
-            var user = new User("Dragan", "12345", "12334", 4, DateTime.Now, DateTime.MaxValue);
-            //var student = StudentValidation.getStudentDataByUser(user);
-            var student = StudentValidation.getStudentDataByUserSortedAlphabetically();
+           // var user = new User("Dragan", "12345", "12334", 4, DateTime.Now, DateTime.MaxValue);
+            Student student = StudentValidation.getStudentDataByUser(user);
+            //var student = StudentValidation.getStudentDataByUserSortedAlphabetically();
             firstName.Text = student.FirstName;
             secondName.Text = student.MiddleName;
             lastName.Text = student.LastName;   
