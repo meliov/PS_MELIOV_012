@@ -5,43 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentInfoSystem"
         mc:Ignorable="d"
-        Title="Студентска информационна система" Height="500" Width="700">
-    <Grid Margin="-199,-124,-399,-162">
+        Title="Студентска информационна система" Height="500" Width="1200">
+    <Grid Margin="0,-124,-399,-162" HorizontalAlignment="Right" Width="1298">
 
         <GroupBox Header="Лични данни" Margin="233,182,410,449" Width="NaN">
             <Grid Height="96" Name="personalInfo">
                 <Label Content="Име: " HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="27" Width="38"/>
                 <Label Content="Презиме: " HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" Height="27" Width="66" RenderTransformOrigin="-0.338,0.631"/>
                 <Label Content="Фамилия: " HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Height="27" Width="62"/>
-                <TextBox HorizontalAlignment="Left" Name="firstName" Margin="113,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="328" Height="27"/>
-                <TextBox HorizontalAlignment="Left" Name="secondName" Margin="113,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="328" Height="28"/>
-                <TextBox HorizontalAlignment="Left" Name="lastName" Margin="113,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="328" Height="28"/>
+                <TextBox HorizontalAlignment="Left" Text="{Binding Path=FirstName}" Name="firstName" Margin="113,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="328" Height="27"/>
+                <TextBox HorizontalAlignment="Left" Text="{Binding Path=MiddleName}" Name="secondName" Margin="113,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="328" Height="28"/>
+                <TextBox HorizontalAlignment="Left" Text="{Binding Path=LastName}" Name="lastName" Margin="113,66,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="328" Height="28"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="Студентска информация" Margin="233,326,410,240" Width="NaN">
             <Grid Height="168" Margin="0,0,65,0" Name="StudentInfo" Width="NaN">
                 <Label Content="Факултет: " HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="27" Width="83"/>
                 <Label Content="Специалност: " HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" Height="27" Width="89"/>
-                <TextBox HorizontalAlignment="Left" Name="fac" Margin="115,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="326" Height="27"/>
-                <TextBox HorizontalAlignment="Left" Name="spec"  Margin="115,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="326" Height="28"/>
-                <TextBox HorizontalAlignment="Left" Name="oks" Margin="115,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="326" Height="28"/>
-                <TextBox HorizontalAlignment="Left" Name="facNum" Margin="115,98,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="326" Height="28"/>
-                <TextBox HorizontalAlignment="Left" Name="status" Margin="115,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="326" Height="28"/>
+                <TextBox HorizontalAlignment="Left" Text="{Binding Path=Faculty}" Name="fac" Margin="115,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="326" Height="27"/>
+                <TextBox HorizontalAlignment="Left" Text="{Binding Path=Specialty}" Name="spec"  Margin="115,32,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="326" Height="28"/>
+                <TextBox HorizontalAlignment="Left" Text="{Binding Path=EducationDegree}" Name="oks" Margin="115,65,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="326" Height="28"/>
+                <TextBox HorizontalAlignment="Left" Text="{Binding Path=FaqNumber}" Name="facNum" Margin="115,98,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="326" Height="28"/>
+                <TextBox HorizontalAlignment="Left" Text="{Binding Path=Status}" Name="status" Margin="115,130,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="326" Height="28"/>
                 <Label Content="ОКС: " HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Height="27" Width="83"/>
                 <Label Content="Фак. номер: " HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Height="27" Width="83"/>
                 <Label Content="Статус: " HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Height="27" Width="83"/>
                 <Label Content="Курс: " HorizontalAlignment="Left" Margin="446,2,0,0" VerticalAlignment="Top" Height="27" Width="38"/>
-                <TextBox HorizontalAlignment="Left" Name="course" Margin="502,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="74" Height="27"/>
+                <TextBox HorizontalAlignment="Left" Text="{Binding Path=Course}" Name="course" Margin="502,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="74" Height="27"/>
                 <Label Content="Поток: " HorizontalAlignment="Left" Margin="446,34,0,0" VerticalAlignment="Top" Height="27" Width="51"/>
-                <TextBox HorizontalAlignment="Left"  Name="stream" Margin="502,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="74" Height="28"/>
+                <TextBox HorizontalAlignment="Left" Text="{Binding Path=Stream}"  Name="stream" Margin="502,32,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="74" Height="28"/>
                 <Label Content="Група: " HorizontalAlignment="Left" Margin="446,66,0,0" VerticalAlignment="Top" Height="27" Width="46"/>
-                <TextBox HorizontalAlignment="Left" Name="group" Margin="502,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="74" Height="28" />
-                <TextBox HorizontalAlignment="Left" Name="count" Margin="502,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="55" Height="31"/>
+                <TextBox HorizontalAlignment="Left" Text="{Binding Path=Group}" Name="group" Margin="502,65,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="74" Height="28" />
+                <TextBox HorizontalAlignment="Left" Name="count" Margin="502,112,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="55" Height="31"/>
             </Grid>
         </GroupBox>
         <Button Content="Logout" HorizontalAlignment="Left" Margin="831,379,0,0" VerticalAlignment="Top" Click="Logout" RenderTransformOrigin="0.831,-0.633" Height="23" Width="47"/>
         <Button Content="Login" HorizontalAlignment="Left" Margin="831,412,0,0" VerticalAlignment="Top" Click="Login" RenderTransformOrigin="0.831,-0.633" Height="23" Width="47"/>
         <Button Content="Submit" HorizontalAlignment="Left" Margin="831,440,0,0" VerticalAlignment="Top" Click="Submit" RenderTransformOrigin="0.831,-0.633" Height="23" Width="47"/>
         <Label Content="count" HorizontalAlignment="Left" Margin="683,460,0,0" VerticalAlignment="Top" Width="49"/>
+        <Image HorizontalAlignment="Left" Height="348" Margin="-138,182,0,0" VerticalAlignment="Top" Width="258"/>
     </Grid>
 </Window>

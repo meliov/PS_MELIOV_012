@@ -8,36 +8,25 @@
         Title="Студентска информационна система" Height="500" Width="700">
     <Grid Margin="-199,-124,-399,-162">
 
-        <GroupBox Header="Лични данни" Margin="233,182,467,458">
-            <Grid Height="96">
-                <Label Content="Име: " HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="27" Width="38"/>
-                <Label Content="Презиме: " HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" Height="27" Width="66" RenderTransformOrigin="-0.338,0.631"/>
-                <Label Content="Фамилия: " HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Height="27" Width="62"/>
-                <TextBox HorizontalAlignment="Left" Margin="113,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="328" Height="27"/>
-                <TextBox HorizontalAlignment="Left" Margin="113,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="328" Height="28"/>
-                <TextBox HorizontalAlignment="Left" Margin="113,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="328" Height="28"/>
+        <GroupBox Header="Hello WPF" Margin="200,127,402,163">
+            <Grid Height="455" Margin="0,0,-2,0">
+                <Label Content="Име: " HorizontalAlignment="Left" Margin="20,99,0,0" VerticalAlignment="Top" Height="28" Width="38"/>
+                <TextBox HorizontalAlignment="Left" Name="name1" Margin="73,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="207" Height="34"/>
+                <Label Content="Име: " HorizontalAlignment="Left" Margin="20,138,0,0" VerticalAlignment="Top" Height="28" Width="38"/>
+                <Label Content="Име: " HorizontalAlignment="Left" Margin="20,181,0,0" VerticalAlignment="Top" Height="28" Width="38"/>
+                <TextBox HorizontalAlignment="Left" Name="name2" Margin="73,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="207" Height="34"/>
+                <TextBox HorizontalAlignment="Left" Name="name3" Margin="73,181,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="207" Height="34"/>
+                <Button Content="Здрасти!" HorizontalAlignment="Left" Margin="199,236,0,0" VerticalAlignment="Top" Width="81" Height="21" Click="clickHello"/>
+                <Button Content="Click me!" HorizontalAlignment="Center" Margin="0,369,0,0"  Click="Button_Click" Width="686"/>
+                <ListBox x:Name="peopleListBox" Margin="523,81,10,163">
+                    <ListBoxItem Content="Mike"/>
+                    <ListBoxItem Content="Lisa"/>
+                    <ListBoxItem Content="John"/>
+                    <ListBoxItem Content="Mary" Selected="ListBoxItem_Selected"/>
+                </ListBox>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Студентска информация"  Margin="233,326,467,240">
-            <Grid Height="168">
-                <Label Content="Факултет: " HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="27" Width="83"/>
-                <Label Content="Специалност: " HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" Height="27" Width="89"/>
-                <TextBox HorizontalAlignment="Left" Margin="115,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="326" Height="27"/>
-                <TextBox HorizontalAlignment="Left" Margin="115,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="326" Height="28"/>
-                <TextBox HorizontalAlignment="Left" Margin="115,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="326" Height="28"/>
-                <TextBox HorizontalAlignment="Left" Margin="115,98,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="326" Height="28"/>
-                <TextBox HorizontalAlignment="Left" Margin="115,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="326" Height="28"/>
-                <Label Content="ОКС: " HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Height="27" Width="83"/>
-                <Label Content="Статус: " HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Height="27" Width="83"/>
-                <Label Content="Фак. номер: " HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Height="27" Width="83"/>
-                <Label Content="Kурс: " HorizontalAlignment="Left" Margin="446,2,0,0" VerticalAlignment="Top" Height="27" Width="38"/>
-                <TextBox HorizontalAlignment="Left" Margin="502,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="74" Height="27"/>
-                <Label Content="Поток: " HorizontalAlignment="Left" Margin="446,34,0,0" VerticalAlignment="Top" Height="27" Width="46"/>
-                <TextBox HorizontalAlignment="Left" Margin="502,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="74" Height="28"/>
-                <Label Content="Група: " HorizontalAlignment="Left" Margin="446,66,0,0" VerticalAlignment="Top" Height="27" Width="46"/>
-                <TextBox HorizontalAlignment="Left" Margin="502,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="74" Height="28"/>
-            </Grid>
-        </GroupBox>
+        <Button Content="Greeting" HorizontalAlignment="Left" Margin="805,457,0,0" Click="greetingClick" VerticalAlignment="Top" Width="59"/>
     </Grid>
 
 </Window>

@@ -26,8 +26,10 @@ namespace StudentInfoSystem
             {
                 CopyTestStudents();
             }
-            
             this.user = user;
+            Student student = StudentValidation.getStudentDataByUser(user);
+            //var student = StudentValidation.getStudentDataByUserSortedAlphabetically();
+            DataContext = student;
             InitializeComponent();
         }
 
@@ -70,7 +72,7 @@ namespace StudentInfoSystem
             fac.Text = student.Faculty;
             spec.Text = student.Specialty;
             oks.Text = student.EducationDegree;
-            facNum.Text = student.FaqNumber;
+            //facNum.Text = student.FaqNumber;
             status.Text = StudStatusChoices[0];
             course.Text = student.Course.ToString();
             stream.Text = student.Stream.ToString();
