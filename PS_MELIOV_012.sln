@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserLogin", "UserLogin\User
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpenseIt", "ExpenseIt\ExpenseIt.csproj", "{831321F5-E174-4DA2-8FD8-4E8980BB9F12}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfExample", "WpfExample\WpfExample.csproj", "{C1CC5B12-BEBA-40EE-92DA-8B7511FDF64B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyMVVM", "EasyMVVM\EasyMVVM.csproj", "{FD5A4260-F8E1-4562-B209-4DD5B250F780}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{831321F5-E174-4DA2-8FD8-4E8980BB9F12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{831321F5-E174-4DA2-8FD8-4E8980BB9F12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{831321F5-E174-4DA2-8FD8-4E8980BB9F12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1CC5B12-BEBA-40EE-92DA-8B7511FDF64B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1CC5B12-BEBA-40EE-92DA-8B7511FDF64B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1CC5B12-BEBA-40EE-92DA-8B7511FDF64B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1CC5B12-BEBA-40EE-92DA-8B7511FDF64B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD5A4260-F8E1-4562-B209-4DD5B250F780}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD5A4260-F8E1-4562-B209-4DD5B250F780}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD5A4260-F8E1-4562-B209-4DD5B250F780}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD5A4260-F8E1-4562-B209-4DD5B250F780}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

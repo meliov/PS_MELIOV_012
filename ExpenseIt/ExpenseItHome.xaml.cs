@@ -1,15 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace ExpenseIt;
 
-public partial class ExpenseItHome : Window
+public partial class ExpenseItHome : Window, INotifyPropertyChanged
 {
      private string mainCaptionText;
+     public event PropertyChangedEventHandler? PropertyChanged;
     public List<Person> ExpenseDataSource { get; set; }
+    
+    private DateTime lastChecked; 
+    public DateTime LastChecked 
+    { 
+        get => lastChecked;  
+        set 
+        { 
+            lastChecked = value;
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs("LastChecked"));
+            }
+        } 
+    }
+    
+    public ObservableCollection<string> PersonsChecked 
+    { get; set;}
 
+    
+    
     public string MainCaptionText
     {
         get => mainCaptionText;
@@ -18,10 +41,13 @@ public partial class ExpenseItHome : Window
 
     public ExpenseItHome()
     {
+        this.DataContext = this;
         InitializeComponent();
         mockDataSoruce();
         MainCaptionText = "View Expense Report :"; 
-        
+        this.LastChecked = DateTime.Now;
+        PersonsChecked = new ObservableCollection<string>();
+
         // ListBoxItem james = new ListBoxItem();
         // james.Content = "James";
         // peopleListBox.Items.Add(james);
@@ -39,6 +65,15 @@ public partial class ExpenseItHome : Window
         expenseReport.Show();
     }
 
+    private void peopleListBox_SelectionChanged_1(object sender, 
+        SelectionChangedEventArgs e) 
+    { 
+        LastChecked = DateTime.Now; 
+        PersonsChecked.Add((peopleListBox.SelectedItem as 
+            Person).Name);
+    }
+
+    
     private void mockDataSoruce()
     {
         ExpenseDataSource = new List<Person>() 
@@ -94,5 +129,19 @@ public partial class ExpenseItHome : Window
             } 
         };
 
+    }
+    
+
+    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    protected bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
+    {
+        if (EqualityComparer<T>.Default.Equals(field, value)) return false;
+        field = value;
+        OnPropertyChanged(propertyName);
+        return true;
     }
 }

@@ -10,14 +10,26 @@
         <ListBox
             ItemsSource="{Binding RelativeSource=
  {RelativeSource AncestorType={x:Type Window}}, Path=ExpenseDataSource}"
-            x:Name="peopleListBox" Margin="10,58,51,65">
+            x:Name="peopleListBox" Margin="239,125,27,34"
+            SelectionChanged="peopleListBox_SelectionChanged_1"
+        >
 
         </ListBox>
-        <Label Content="Names" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="64" Height="43"/>
-        <Button Content="{Binding ElementName=peopleListBox, Path=SelectedItem.Name}" HorizontalAlignment="Left" Margin="260,16,0,0" VerticalAlignment="Top" Height="26" Click="viewClick" Width="80"/>
+        <Label Content="Names" HorizontalAlignment="Left" Margin="255,82,0,0" VerticalAlignment="Top" Width="64"
+               Height="43" />
+        <Button Content="{Binding ElementName=peopleListBox, Path=SelectedItem.Name}" HorizontalAlignment="Left"
+                Margin="260,16,0,0" VerticalAlignment="Top" Height="26" Click="viewClick" Width="80" />
         <Label
             Content="{Binding RelativeSource={RelativeSource  Mode=FindAncestor, AncestorType={x:Type Window}},
              Path=MainCaptionText}"
-            HorizontalAlignment="Left" Margin="103,12,0,0" VerticalAlignment="Top" Height="30" Width="136" />
+            HorizontalAlignment="Left" Margin="199,47,0,0" VerticalAlignment="Top" Height="30" Width="136" />
+        <Label Content="{Binding Path = LastChecked}" HorizontalAlignment="Left" Margin="31,18,0,0"
+               VerticalAlignment="Top" Width="182" Height="29" RenderTransformOrigin="0.224,-10.394" />
+        <ListBox
+            ItemsSource="{Binding RelativeSource=
+ {RelativeSource AncestorType={x:Type Window}}, Path=PersonsChecked}"
+            Margin="31,125,234,34" />
+        <Label Content="Last Previewed" HorizontalAlignment="Left" Margin="31,82,0,0" VerticalAlignment="Top"
+               Width="97" Height="43" />
     </Grid>
 </Window>
