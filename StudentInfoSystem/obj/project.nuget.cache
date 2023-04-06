@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "ar3INNx3pk1HuFhOXqJFmF6pgKVumLL/vnuNZMrY7g4txKj+OPTVbbn+WScj9HXExYJcd0wntH77/EVdCIkZvQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Ahmed\\Desktop\\PS-project\\PS_MELIOV_012\\StudentInfoSystem\\StudentInfoSystem.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ahmed\\.nuget\\packages\\commonlib.sqlsugar.expand\\1.0.6\\commonlib.sqlsugar.expand.1.0.6.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\dbconnect\\2.1.0\\dbconnect.2.1.0.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\linq2db\\5.1.0\\linq2db.5.1.0.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\linq2db.sqlserver\\5.1.0\\linq2db.sqlserver.5.1.0.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\system.data.sqlclient\\4.8.5\\system.data.sqlclient.4.8.5.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.3\\system.runtime.compilerservices.unsafe.4.5.3.nupkg.sha512",
+    "C:\\Users\\Ahmed\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+  ],
+  "logs": []
+}

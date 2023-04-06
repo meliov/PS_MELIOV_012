@@ -1,0 +1,93 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Ahmed\\Desktop\\PS-project\\PS_MELIOV_012\\StudentInfoSystem\\StudentInfoSystem.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Ahmed\\Desktop\\PS-project\\PS_MELIOV_012\\StudentInfoSystem\\StudentInfoSystem.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ahmed\\Desktop\\PS-project\\PS_MELIOV_012\\StudentInfoSystem\\StudentInfoSystem.csproj",
+        "projectName": "StudentInfoSystem",
+        "projectPath": "C:\\Users\\Ahmed\\Desktop\\PS-project\\PS_MELIOV_012\\StudentInfoSystem\\StudentInfoSystem.csproj",
+        "packagesPath": "C:\\Users\\Ahmed\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ahmed\\Desktop\\PS-project\\PS_MELIOV_012\\StudentInfoSystem\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {
+              "C:\\Users\\Ahmed\\Desktop\\PS-project\\PS_MELIOV_012\\UserLogin\\UserLogin.csproj": {
+                "projectPath": "C:\\Users\\Ahmed\\Desktop\\PS-project\\PS_MELIOV_012\\UserLogin\\UserLogin.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "CommonLib.SqlSugar.Expand": {
+              "target": "Package",
+              "version": "[1.0.6, )"
+            },
+            "DBConnect": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
+            },
+            "linq2db": {
+              "target": "Package",
+              "version": "[5.1.0, )"
+            },
+            "linq2db.SqlServer": {
+              "target": "Package",
+              "version": "[5.1.0, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win7-x86": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Users\\Ahmed\\Desktop\\PS-project\\PS_MELIOV_012\\UserLogin\\UserLogin.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ahmed\\Desktop\\PS-project\\PS_MELIOV_012\\UserLogin\\UserLogin.csproj",
+        "projectName": "UserLogin",
+        "projectPath": "C:\\Users\\Ahmed\\Desktop\\PS-project\\PS_MELIOV_012\\UserLogin\\UserLogin.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    }
+  }
+}
