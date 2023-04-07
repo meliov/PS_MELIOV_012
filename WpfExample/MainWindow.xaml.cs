@@ -20,6 +20,10 @@ namespace WpfExample
     {
         
         private InfoCommand _infoCommand = new InfoCommand();
+        public InfoCommand InformationCommand
+        {
+            get { return _infoCommand; }
+        }
         public MainWindow()
         {
             InitializeComponent();
@@ -27,10 +31,6 @@ namespace WpfExample
 
         }
         
-        public InfoCommand InformationCommand
-        {
-            get { return _infoCommand; }
-        }
 
     }
 }

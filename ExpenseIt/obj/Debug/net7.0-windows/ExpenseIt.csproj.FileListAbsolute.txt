@@ -5,11 +5,13 @@ C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\bin\Debug\net7.0-windo
 C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\bin\Debug\net7.0-windows\ExpenseIt.pdb
 C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\obj\Debug\net7.0-windows\ExpenseIt.csproj.AssemblyReference.cache
 C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\obj\Debug\net7.0-windows\ExpenseItHome.g.cs
+C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\obj\Debug\net7.0-windows\ExpenseReport.g.cs
 C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\obj\Debug\net7.0-windows\MainWindow.g.cs
 C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\obj\Debug\net7.0-windows\App.g.cs
 C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\obj\Debug\net7.0-windows\ExpenseIt_MarkupCompile.cache
 C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\obj\Debug\net7.0-windows\ExpenseIt_MarkupCompile.lref
 C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\obj\Debug\net7.0-windows\ExpenseItHome.baml
+C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\obj\Debug\net7.0-windows\ExpenseReport.baml
 C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\obj\Debug\net7.0-windows\MainWindow.baml
 C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\obj\Debug\net7.0-windows\ExpenseIt.g.resources
 C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\obj\Debug\net7.0-windows\ExpenseIt.GeneratedMSBuildEditorConfig.editorconfig
@@ -21,5 +23,3 @@ C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\obj\Debug\net7.0-windo
 C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\obj\Debug\net7.0-windows\ExpenseIt.pdb
 C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\obj\Debug\net7.0-windows\ExpenseIt.genruntimeconfig.cache
 C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\obj\Debug\net7.0-windows\ref\ExpenseIt.dll
-C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\obj\Debug\net7.0-windows\ExpenseReport.g.cs
-C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\ExpenseIt\obj\Debug\net7.0-windows\ExpenseReport.baml
