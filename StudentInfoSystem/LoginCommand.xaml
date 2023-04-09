@@ -8,7 +8,7 @@
         Title="Login[Command]" Height="450" Width="800">
     <Grid>
         <TextBox HorizontalAlignment="Left"  Text="{Binding Username,UpdateSourceTrigger=PropertyChanged}" Margin="302,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"  Height="32"/>
-        <TextBox HorizontalAlignment="Left"  Text="{Binding Password,UpdateSourceTrigger=PropertyChanged}" Margin="302,217,0,0" VerticalAlignment="Top" Width="152" Height="32" />
+        <PasswordBox HorizontalAlignment="Left"   PasswordChanged="PasswordBox_PasswordChanged" Margin="302,217,0,0" VerticalAlignment="Top" Width="152" Height="32" />
         <Button Content="Влез" Command="{Binding LoginCommandCode}" CommandParameter="{Binding .}" HorizontalAlignment="Left" Margin="302,264,0,0" VerticalAlignment="Top" Height="25" Width="152"/>
         <Label Content="Потребителско Име" HorizontalAlignment="Left" Margin="146,159,0,0" VerticalAlignment="Top" Height="32" Width="137"/>
         <Label Content="Парола" HorizontalAlignment="Left" Margin="146,217,0,0" VerticalAlignment="Top" Height="32" Width="137"/>
