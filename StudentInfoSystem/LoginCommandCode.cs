@@ -17,8 +17,8 @@ public class LoginCommandCode : ICommand
     {
         var list = parameter as LoginCredentialsList; 
         var username = list.Username;
-        var pass = list.Password;
-        // MessageBox.Show("Hello, world!" + " " + username + " " + pass);
+        var pass = removeTabsAndBlanks(list.Password);
+        
         User dbUser = UserData.isUserPassCorrect(username, pass);
         if (dbUser == null)
         {
@@ -33,5 +33,10 @@ public class LoginCommandCode : ICommand
     }
 
     public event EventHandler? CanExecuteChanged;
+
+    private String removeTabsAndBlanks(String passToUpdate)
+    {
+        return passToUpdate.Replace("\\s+", "");
+    }
     
 }
