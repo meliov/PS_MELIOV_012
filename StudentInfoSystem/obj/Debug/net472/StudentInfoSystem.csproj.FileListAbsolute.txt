@@ -35,3 +35,5 @@ C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\StudentInfoSystem\obj\Debug\net4
 C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\StudentInfoSystem\obj\Debug\net472\LoginCommand.g.cs
 C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\StudentInfoSystem\obj\Debug\net472\LoginCommand.baml
 C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\StudentInfoSystem\obj\Debug\net472\GeneratedInternalTypeHelper.g.cs
+C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\StudentInfoSystem\obj\Debug\net472\TestMode.g.cs
+C:\Users\Ahmed\Desktop\PS-project\PS_MELIOV_012\StudentInfoSystem\obj\Debug\net472\TestMode.baml

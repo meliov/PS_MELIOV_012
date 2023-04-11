@@ -26,7 +26,7 @@ public class LoginCommandCode : ICommand
         }
         else
         {
-            MainWindow mainWindow = new MainWindow(dbUser);
+            TestMode mainWindow = new TestMode(dbUser);
             (Application.Current.MainWindow as Window)?.Close();
             mainWindow.Show();
         }

@@ -7,12 +7,30 @@
         mc:Ignorable="d"
         Title="Login[Command]" Height="450" Width="800">
     <Grid>
-        <TextBox HorizontalAlignment="Left"  Text="{Binding Username,UpdateSourceTrigger=PropertyChanged}" Margin="302,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"  Height="32"/>
+        <TextBox HorizontalAlignment="Left" Margin="302,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"  Height="32">
+            <TextBox.Text>
+                <Binding Path="Username" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+                    <Binding.ValidationRules>
+                        <local:ValidateFields ErrorMessage="Username is required and must be at least 5 characters." MinLength="5" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Top" Foreground="Red" FontSize="14" Text="{Binding [0].ErrorContent}" />
+                        <AdornedElementPlaceholder>
+                            <Border BorderBrush="Red" BorderThickness="1" />
+                        </AdornedElementPlaceholder>
+                    </DockPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
         <PasswordBox HorizontalAlignment="Left"   PasswordChanged="PasswordBox_PasswordChanged" Margin="302,217,0,0" VerticalAlignment="Top" Width="152" Height="32" />
         <Button Content="Влез" Command="{Binding LoginCommandCode}" CommandParameter="{Binding .}" HorizontalAlignment="Left" Margin="302,264,0,0" VerticalAlignment="Top" Height="25" Width="152"/>
         <Label Content="Потребителско Име" HorizontalAlignment="Left" Margin="146,159,0,0" VerticalAlignment="Top" Height="32" Width="137"/>
         <Label Content="Парола" HorizontalAlignment="Left" Margin="146,217,0,0" VerticalAlignment="Top" Height="32" Width="137"/>
-        <Label Content="{Binding ErrorMessage,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Margin="247,85,0,0" VerticalAlignment="Top" Width="297"/>
+        <Label Foreground="Red" Content="{Binding ErrorMessage,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Margin="247,85,0,0" VerticalAlignment="Top" Width="297"/>
 
     </Grid>
 </Window>

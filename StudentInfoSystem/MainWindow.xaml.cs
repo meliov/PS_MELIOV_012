@@ -5,7 +5,9 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using UserLogin;
+using WpfApp1;
 using WpfApp1.Properties;
 
 namespace StudentInfoSystem
@@ -19,6 +21,15 @@ namespace StudentInfoSystem
         private Student student;
         private User user;
         public List<string> StudStatusChoices { get; set; }
+
+        private Visibility _disable;
+
+        public Visibility Disable
+        {
+            get => _disable;
+            set => _disable = value;
+        }
+
         public MainWindow(User user)
         {
             FillStudStatusChoices();
@@ -26,11 +37,23 @@ namespace StudentInfoSystem
             {
                 CopyTestStudents();
             }
+            
+            Student student;
             this.user = user;
-            Student student = StudentValidation.getStudentDataByUser(user);
+            if (user != null)
+            {
+                Disable = Visibility.Hidden;
+                student = StudentValidation.getStudentDataByUser(user);
+            }
+            else
+            {
+                Disable = Visibility.Visible;
+                student = StudentValidation.getStudentDataByUserSortedAlphabetically();
+            }
             //var student = StudentValidation.getStudentDataByUserSortedAlphabetically();
-            DataContext = student;
+            DataContext = new StudentAndButtonContext(student, Disable);
             InitializeComponent();
+            
         }
 
         private void clear()
@@ -63,17 +86,24 @@ namespace StudentInfoSystem
         {
             StudentInfo.IsEnabled = true;
             personalInfo.IsEnabled = true;
+            Student student;
            // var user = new User("Dragan", "12345", "12334", 4, DateTime.Now, DateTime.MaxValue);
-            Student student = StudentValidation.getStudentDataByUser(user);
-            //var student = StudentValidation.getStudentDataByUserSortedAlphabetically();
-            firstName.Text = student.FirstName;
+           if (user != null)
+           {
+               student = StudentValidation.getStudentDataByUser(user);
+           }
+           else
+           {
+               student = StudentValidation.getStudentDataByUserSortedAlphabetically();   
+           }
+           firstName.Text = student.FirstName;
             secondName.Text = student.MiddleName;
             lastName.Text = student.LastName;   
             fac.Text = student.Faculty;
             spec.Text = student.Specialty;
             oks.Text = student.EducationDegree;
             //facNum.Text = student.FaqNumber;
-            status.Text = StudStatusChoices[0];
+            status.Text = student.Status;//StudStatusChoices[0];
             course.Text = student.Course.ToString();
             stream.Text = student.Stream.ToString();
             group.Text = student.Group.ToString();
